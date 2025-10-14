@@ -1079,12 +1079,9 @@ body::before {
 /* Шапка и футер на всю ширину, не «выпирают» за экран, учитываем вырезы iOS */
 .top-promo-banner,
 .bottom-promo-banner {
-  /* Принудительное растяжение на всю ширину viewport */
-  width: 100vw !important; /* Усиливаем правило */
-  max-width: 100%;
-  overflow: hidden;
-  padding-left:  calc(12px + env(safe-area-inset-left));
-  padding-right: calc(12px + env(safe-area-inset-right));
+  min-width: 1300px; /* та же ширина, что у .container (max-width) */
+  box-sizing: border-box;
+  margin: 0 auto; /* центрируем */
 }
 
 /* Футер не прячется за нижнюю жестовую панель */
