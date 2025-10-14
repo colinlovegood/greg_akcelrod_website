@@ -5,6 +5,14 @@
     box-sizing: border-box;
 }
 
+/* --- ГЛАВНОЕ ИСПРАВЛЕНИЕ: Надежный сброс стилей для HTML и Body ---*/
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Предотвращает горизонтальный скролл, который может появиться из-за 100vw */
+    overflow-x: hidden; 
+}
+
 /* Retro Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
@@ -30,7 +38,7 @@ body {
     background: #4A90E2;
     color: #333;
     min-height: 100vh;
-    overflow-x: hidden;
+    /* overflow-x: hidden;  Уже перенесено в html, body */
     position: relative;
 }
 
@@ -56,6 +64,14 @@ body::before {
     max-width: 1300px;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    /* --- ИСПРАВЛЕНИЕ: Добавляем отступы, чтобы контент не наезжал на баннеры --- */
+    /* Предполагаемая высота верхнего баннера ~100px */
+    /* margin-top: 100px;  */
+    /* Предполагаемая высота нижнего баннера ~70px */
+    margin-bottom: 70px;
+    /* Восстанавливаем центрирование после добавления margin-top/bottom */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Left Panel - Navigation (Fixed Width: 280px) */
@@ -83,6 +99,7 @@ body::before {
 
 .header {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .site-title {
@@ -1062,7 +1079,8 @@ body::before {
 /* Шапка и футер на всю ширину, не «выпирают» за экран, учитываем вырезы iOS */
 .top-promo-banner,
 .bottom-promo-banner {
-  width: 100vw;
+  /* Принудительное растяжение на всю ширину viewport */
+  width: 100vw !important; /* Усиливаем правило */
   max-width: 100%;
   overflow: hidden;
   padding-left:  calc(12px + env(safe-area-inset-left));
@@ -1097,19 +1115,4 @@ body::before {
   .left-panel  { flex: 0 0 350px !important; }
   .center-content { width: 600px !important; flex: 0 0 600px !important; }
   .right-panel { flex: 1 1 auto !important; height: auto !important; }
-}
-
-html, body {
-    /* Ensures no unexpected space restricts the 100vw element */
-    margin: 0;
-    padding: 0;
-    /* This can help prevent horizontal scroll issues on some devices */
-    overflow-x: hidden; 
-}
-.top-promo-banner,
-.bottom-promo-banner {
-    /* Use !important to ensure this is applied */
-    width: 100vw !important; 
-    max-width: 100% !important; 
-    /* ... rest of the code ... */
 }
