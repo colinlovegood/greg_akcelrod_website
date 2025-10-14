@@ -314,3 +314,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('⚽ Welcome to the official PSG player website');
     console.log('🎯 Use spacebar to play/pause video, arrow keys to seek');
 });
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    window.location.href = 'gallery.html';
+  });
+});
+document.querySelector('.site-title').addEventListener('click', () => {
+  window.location.href = 'index.html';
+});

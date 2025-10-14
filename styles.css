@@ -1124,3 +1124,16 @@ body::before {
         height: 48px;
     }
 }
+.section-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.section-link:hover {
+  text-decoration: underline; /* можно убрать, если не нужно */
+}
+
+.header {
+  cursor: pointer;
+}
