@@ -1059,13 +1059,14 @@ body::before {
 
 /* ===== FIX: header/footer on mobile without breaking desktop layout ===== */
 
-
 /* Шапка и футер на всю ширину, не «выпирают» за экран, учитываем вырезы iOS */
 .top-promo-banner,
 .bottom-promo-banner {
-  width: 100%;      /* занимают полную ширину контейнера */
-  margin: 0;        /* контейнер сам уже центрируется */
-  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  padding-left:  calc(12px + env(safe-area-inset-left));
+  padding-right: calc(12px + env(safe-area-inset-right));
 }
 
 /* Футер не прячется за нижнюю жестовую панель */
