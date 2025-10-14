@@ -1098,3 +1098,18 @@ body::before {
   .center-content { width: 600px !important; flex: 0 0 600px !important; }
   .right-panel { flex: 1 1 auto !important; height: auto !important; }
 }
+
+html, body {
+    /* Ensures no unexpected space restricts the 100vw element */
+    margin: 0;
+    padding: 0;
+    /* This can help prevent horizontal scroll issues on some devices */
+    overflow-x: hidden; 
+}
+.top-promo-banner,
+.bottom-promo-banner {
+    /* Use !important to ensure this is applied */
+    width: 100vw !important; 
+    max-width: 100% !important; 
+    /* ... rest of the code ... */
+}
